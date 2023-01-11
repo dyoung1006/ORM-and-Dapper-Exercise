@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM-and-Dapper-Exercise", "ORM-and-Dapper-Exercise.csproj", "{BEC4B589-B757-4ADC-9E9C-090D792A600B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORM-and-Dapper-Exercise", "ORM-and-Dapper-Exercise.csproj", "{BEC4B589-B757-4ADC-9E9C-090D792A600B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C15D5765-CC0B-4900-80A7-76F4DAD61EC9}"
+	ProjectSection(SolutionItems) = preProject
+		Class1.cs = Class1.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
