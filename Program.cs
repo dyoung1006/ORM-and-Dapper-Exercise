@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using ORM_and_Dapper_Exercise;
-
+//comment to push
 class Program
 {
     static void Main(string[] args)
