@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using ORM_and_Dapper_Exercise;
-//comment to push
+
 class Program
 {
     static void Main(string[] args)
@@ -19,14 +19,22 @@ class Program
         var repo = new DapperDepartmentRepository(conn);
         var repoProducts = new DapperProductRepository(conn);
 
-        Console.WriteLine("Type a new Department name");
-        var newDepartment = Console.ReadLine();
-
-        repo.InsertDepartment(newDepartment);
-
         var departments = repo.GetAllDepartments();
         var products = repoProducts.GetAllProducts();
 
+
+        Console.WriteLine("Type a new Department name");
+        string newDepartment;
+
+        do 
+        {
+            Console.WriteLine("Type a new Department name");
+            newDepartment = Console.ReadLine(); 
+        }
+        while (!string.IsNullOrEmpty(newDepartment));
+
+        repo.InsertDepartment(newDepartment);
+                
         foreach (var department in departments) 
         {
             Console.WriteLine(department.Name);
@@ -36,7 +44,10 @@ class Program
         var newProductPrice = 1499.99d;
         var newProductCategoryId = 2;
         repoProducts.CreateProduct(newProductName, newProductPrice, newProductCategoryId);
+        
+        var productToUpdate = products.Where(x => x.productId == 1).ToList();
 
+        repoProducts.UpdateInventory(productToUpdate[0].productId, (productToUpdate[0].stockLevel-1));
     }
 
 }

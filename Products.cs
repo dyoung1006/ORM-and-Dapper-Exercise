@@ -1,5 +1,4 @@
-﻿
-namespace ORM_and_Dapper_Exercise
+﻿namespace ORM_and_Dapper_Exercise
 {
     public class Products
     {
@@ -18,7 +17,7 @@ namespace ORM_and_Dapper_Exercise
 
         public bool onSale { get; set; }
 
-        public int stock { get; set; }
+        public int stockLevel { get; set; }
 
     }
 }

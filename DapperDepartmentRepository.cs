@@ -13,7 +13,7 @@ namespace ORM_and_Dapper_Exercise
 
         public IEnumerable<Department> GetAllDepartments()
         {
-            return _connection.Query<Department>("SELECT * FROM Departments;").ToList();
+            return _connection.Query<Department>("SELECT * FROM Departments;");
         }
 
         public void InsertDepartment(string newDepartmentName)

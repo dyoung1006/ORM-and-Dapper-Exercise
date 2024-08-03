@@ -18,7 +18,13 @@ namespace ORM_and_Dapper_Exercise
         }
         public IEnumerable<Products> GetAllProducts()
         {
-            return _connection.Query<Products>("SELECT * FROM products;").ToList();
+            return _connection.Query<Products>("SELECT * FROM products;");
+        }
+
+        public void UpdateInventory(int productId, int newStockLevel)
+        {
+            _connection.Execute("UPDATE products SET stocklevel = @stockLevel WHERE ProductID = @ProductId;",
+                        new { stockLevel = newStockLevel, productId = productId });   
         }
     }
 }
