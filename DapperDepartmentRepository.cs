@@ -18,7 +18,7 @@ namespace ORM_and_Dapper_Exercise
 
         public void InsertDepartment(string newDepartmentName)
         {
-            _connection.Execute("INSERT INTO Departments (Name) VALUES (@departmentName);", new { departName = newDepartmentName });
+            _connection.Execute("INSERT INTO Departments (Name) VALUES (@departmentName);", new { departmentName = newDepartmentName });
         }
     }
 }

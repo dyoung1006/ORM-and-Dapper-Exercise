@@ -23,23 +23,31 @@ class Program
         var products = repoProducts.GetAllProducts();
 
 
-        Console.WriteLine("Type a new Department name");
-        string newDepartment;
-
-        do 
-        {
-            Console.WriteLine("Type a new Department name");
-            newDepartment = Console.ReadLine(); 
-        }
-        while (!string.IsNullOrEmpty(newDepartment));
-
-        repo.InsertDepartment(newDepartment);
-                
-        foreach (var department in departments) 
+        Console.WriteLine("Here is a list of departments");
+        foreach (var department in departments)
         {
             Console.WriteLine(department.Name);
         }
 
+        Console.WriteLine("Would you like to create a new department? [yes/no] ");
+        switch (Console.ReadLine().ToLower())
+        {
+            case "yes":
+                Console.WriteLine("Type a new Department name");
+                var newDepartment = Console.ReadLine();
+
+                if (newDepartment != null)
+                {
+                    repo.InsertDepartment(newDepartment);
+                }
+                else
+                {
+                    Console.WriteLine("No Department name was supplied, we will proceed."); 
+                }
+            break;
+        }
+            
+                              
         var newProductName = "DELL XPS 9510";
         var newProductPrice = 1499.99d;
         var newProductCategoryId = 2;
@@ -48,6 +56,7 @@ class Program
         var productToUpdate = products.Where(x => x.productId == 1).ToList();
 
         repoProducts.UpdateInventory(productToUpdate[0].productId, (productToUpdate[0].stockLevel-1));
+        Console.ReadLine();
     }
 
 }

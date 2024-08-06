@@ -11,10 +11,10 @@ namespace ORM_and_Dapper_Exercise
         {
             _connection = connection;
         }
-        public void CreateProduct(string name, double price, int catetoryId)
+        public void CreateProduct(string name, double price, int categoryId)
         {
             _connection.Execute("INSERT INTO Products (Name, Price, CategoryID) VALUES (@name, @price, @categoryID);",
-                        new { name = name, price = price, catetoryId = catetoryId });
+                        new { name = name, price = price, categoryID = categoryId });
         }
         public IEnumerable<Products> GetAllProducts()
         {
