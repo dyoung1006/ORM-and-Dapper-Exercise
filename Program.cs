@@ -52,10 +52,10 @@ class Program
         var newProductPrice = 1499.99d;
         var newProductCategoryId = 2;
         repoProducts.CreateProduct(newProductName, newProductPrice, newProductCategoryId);
-        
-        var productToUpdate = products.Where(x => x.productId == 1).ToList();
 
-        repoProducts.UpdateInventory(productToUpdate[0].productId, (productToUpdate[0].stockLevel-1));
+        //var productToUpdate = products.Where(x => x.productId == 1).ToList();
+
+        repoProducts.UpdateInventory(products.First().productId, products.First().stockLevel - 1);
         Console.ReadLine();
     }
 
